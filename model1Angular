@@ -1,0 +1,101 @@
+QUESTION 1
+
+App.component.html
+<div class="panel panel-defauft" style="width: 950px">
+  <div class="panel-body">
+    <div class="box" style="margin-left:340px; margin-top:40px">
+      <img [src]="imageLocation" width="20%" height="20%" style="padding: 15px">
+      <div Class box-body>
+        <h4>Category : {{ProductTitle}}</h4>
+        <h4>Price : {{productPrice | currency: "INR"}}</h4>
+        <h4>Stock : {{stock}}</h4>
+      </div>
+                  <button type="button" style="background-color:yellow;
+                color:pink;
+                width:150px;
+                height:50px;
+                margin-left:130px;margin-bottom:20px">ADD-TO-CART</button>
+    </div>
+  </div>
+</div>
+
+app.component.ts
+import { Component } from '@angular/core';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'MOBILE SHOPPING';
+  ProductTitle:string="SAMSUNG";
+  productPrice:number=40000;
+  stock:number=4;
+  imageLocation:string="../assets/download.jpeg";
+}
+
+
+Question 4
+
+app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title: String = 'CUSTOMER DETAILS';
+
+  displayVal='';
+
+  getValue(val:string){
+    console.warn(val)
+    this.displayVal = val
+  }
+}
+
+
+app.component.html
+
+<h1>{{title}}</h1>
+
+<h3>Customer Name</h3>
+<input type="text"
+#box1
+placeholder = "Enter Name" 
+name = "name">
+
+<h3>Customer Email</h3>
+<input type="text"
+#box2
+placeholder = "Enter Email" 
+name = "name">
+
+<h3>Customer Mobile Number</h3>
+<input type="number"
+#box3
+placeholder = "Enter Number" 
+name = "name">
+
+
+<br>
+<button (click)="getValue(box1.value)"
+(click)="getValue(box2.value)"
+(click)="getValue(box3.value)">
+  STORE
+</button>
+
+<p>
+  Customer Details<br>
+ cname= "{{displayVal}}"
+ cemail= "{{displayVal}}"
+ mno= "{{displayVal}}"
+</p>
+    
+    
+ 
